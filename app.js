@@ -4,37 +4,28 @@ $(document).ready(function() {
 			return;
 			
 		var n = $(this).val();
+		//n = +n;
    		console.log(n);
 
+   		if (isNaN(n)) {
+   			alert('Sorry, you need to supply a number!');
+   			return;
+   		};
 
-   		var result1 = n % 3;
-		var result2 = n % 5;
+   		function counter(arg) {	
+			for (var i = 1; i <= arg; i++) {
+				var msg = '';
+			    if ( i % 3 == 0 ) { msg += "Fizz" };
+			    if ( i % 5 == 0 ) { msg += "Buzz" };
+			    var result = (msg || i);
+			    //console.log(result);
+			    $('ul').append('<li>' + result + '  ' + '</li>');
+			};
+			$('ul').append('<p></p>');
 
-   		
-		if ((result1 === 0) && (result2 === 0)) {
-			$('ul').append('<p>FizzBuzz</p>');
-			console.log('FizzBuzz');
-		} else if (result1 === 0) {
-			$('ul').append('<p>Fizz</p>');
-			console.log('Fizz');
-		} else if (result2 === 0) {
-			$('ul').append('<p>Buzz</p>');
-			console.log('Buzz');
-		} else {
-			$('ul').append('<p>'+ n + '</p>');
-			console.log(n);
 		}
+
+		counter(n);
 	
 	});
 });
-
-	
-
-
-	//if (n) {};
-	// $("#input").keydown(function() {
- //  		//alert(number);
-	// });
-
-
-
